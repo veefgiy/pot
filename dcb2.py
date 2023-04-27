@@ -7,7 +7,6 @@ import os
 intents = discord.Intents.default()
 intents.message_content = True
 client = discord.Client(intents=intents)
-DISCORD_BOT_KEY = "MTEwMTAyMDU4OTMxOTI3MDQ3MA.GxiPQH.d-Vh4mPJZ0zBbZyDGT5nPganvVbV4tL9PDfSbQ"
 
 # 엑셀 파일 생성 또는 불러오기
 if not os.path.exists('건의사항.xlsx'):
@@ -49,4 +48,5 @@ async def on_message(message):
         await message.channel.send("안녕하세요, 의견수렴부입니다!")
 
 # 가동
-client.run(DISCORD_BOT_KEY)
+access_token = os.environ["BOT_TOKEN"]
+client.run(access_token)
